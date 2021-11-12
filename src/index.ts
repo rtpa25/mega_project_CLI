@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /** @format */
 
 import { program } from 'commander';

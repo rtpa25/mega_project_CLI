@@ -1,20 +1,30 @@
 {
-  "name": "cli",
+  "name": "rbook",
   "version": "1.0.0",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc --watch --preserveWatchOutput"
+    "start": "tsc --watch --preserveWatchOutput",
+    "prepublishOnly": "esbuild src/index.ts --platform=node --outfile=dist/index.js --bundle --minify --define:process.env.NODE_ENV=\\\"production\\\""
   },
+  "bin": "dist/index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^8.3.0",
-    "local-api": "^1.0.0"
+    "@rbook/local-client": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
-    "typescript": "^4.4.4"
+    "esbuild": "0.8.26",
+    "typescript": "^4.4.4",
+    "@rbook/local-api": "^1.0.0",
+    "commander": "^8.3.0"
   }
 }
